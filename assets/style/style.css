@@ -320,6 +320,7 @@ h1 a:hover {
     }
 
     .header-mobile {
+        display: block;
         position: absolute;
         top: 0;
         bottom: 0;
