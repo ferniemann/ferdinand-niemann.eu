@@ -9,10 +9,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
-    <header>
+    <header class="header-desktop">
         <nav>
             <ul>
-                <li><a href="#" class="active">Moin</a></li>
+                <li><a href="./works">Works</a></li>
+                <li><a href="./skills">Skills</a></li>
+                <li><a href="./projects">Projects</a></li>
+                <li><a href="./about">About Me</a></li>
+                <li><a href="./contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header class="header-mobile">
+        <input type="checkbox" name="" id="toggle-menu" class="toggle-menu">
+        <label class="toggle" for="toggle-menu"><i class="fas fa-bars"></i></label>
+        <label class="untoggle" for="toggle-menu"><i class="fas fa-times"></i></label>
+        <nav>
+            <ul>
                 <li><a href="./works">Works</a></li>
                 <li><a href="./skills">Skills</a></li>
                 <li><a href="./projects">Projects</a></li>
@@ -22,9 +35,15 @@
         </nav>
     </header>
     <main>
+        <section class="legal-links">
+            <ul>
+                <li><a href="./legal">Legal Notice</a></li>
+                <li><a href="./privacy">Privacy</a></li>
+            </ul>
+        </section>
         <article class="hero">
             <section class="title">
-                <h1>
+                <h1 class="headline">
                     Hi, I am<br/>Ferdinand!
                 </h1>
                 <h2>

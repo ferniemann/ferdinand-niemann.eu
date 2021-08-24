@@ -4,6 +4,7 @@
     --color-main: #450920;
     --color-secondary: #F9DBBD;
     --color-third: #DA627D;
+    --color-highlight: #00FFC5;
     --font-main: 'Mulish';
     --xx-large: 6rem;
     --x-large: 3.5rem;
@@ -21,14 +22,20 @@
     text-decoration: none;
 }
 
+*::selection {
+    background: var(--color-highlight);
+    color: var(--color-third);
+}
+
 html {
     font-size: 20px;
     font-family: var(--font-main);
+    overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 body {
     background-color: var(--color-main);
-    min-height: 100vh;
 }
 
 h1, h2 {
@@ -36,19 +43,44 @@ h1, h2 {
     text-transform: uppercase;
 }
 
-header {
+.header-desktop {
     padding: 2rem;
-    visibility: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-main);
+    z-index: 2;
 }
 
-nav ul {
+main {
+    margin-bottom: 5rem;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+    position: fixed;
+    top: 0;
+    left: 10rem;
+    right: 10rem;
+    background: var(--color-main);
+}
+
+.heading .icons {
+    margin: 0;
+}
+
+nav ul, .legal-links ul {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    font-size: var(--big);
 }
 
 nav a {
+    font-size: var(--big);
     color: var(--color-secondary);
     font-weight: 900;
     text-transform: uppercase;
@@ -69,13 +101,84 @@ nav a:focus {
     pointer-events: none;
 }
 
+.legal-links {
+    font-size: var(--small);
+    position: fixed;
+    top: 0.5rem;
+    right: 10rem;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.legal-links a {
+    margin-left: 1rem;
+    color: var(--color-third);
+    letter-spacing: 2px;
+}
+
+.legal-links a:hover {
+    border-bottom: 1px solid var(--color-third);
+}
+
+.legal-notice input[type="radio"]{
+    all: unset;
+}
+
+.legal-notice label {
+    padding: .5rem 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.legal-notice input[type="radio"]:checked + label {
+    background: var(--color-third);
+}
+
+.german, .english {
+    display: none;
+}
+
+#english:checked ~ .english {
+    display: block;
+}
+
+#german:checked ~ .german {
+    display: block;
+}
+
+.legal h2 {
+    line-height: 2;
+}
+
+.legal:not(h2) {
+    color: white;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size:var(--big);
+}
+
+.legal p {
+    font-size: var(--medium);
+}
+
+h1 a {
+    color: var(--color-secondary);
+}
+
+h1 a:hover {
+    color: var(--color-third);
+}
+
 .hero {
-    margin-top: 4rem;
+    margin-top: 8rem;
     display: flex;
     justify-content: center;
 }
 
-.hero h1, .hero h2 {
+.headline, .hero h2 {
     transform: rotate(-4deg) skew(-4deg);
     letter-spacing: 4px;
 }
@@ -86,10 +189,14 @@ nav a:focus {
     align-items: center;
 }
 
-.hero h1 {
+.headline {
     font-size: var(--xx-large);
     color: var(--color-third);
     text-shadow: 4px 4px var(--color-secondary);
+}
+
+.content {
+    margin-top: 3rem;
 }
 
 .hero h2 {
@@ -104,7 +211,10 @@ nav a:focus {
 
 .icons a {
     color: white;
-    margin: 2rem;
+}
+
+.icons a:not(:first-of-type) {
+    margin-left: 2rem;
 }
 
 .icons a:hover {
@@ -113,14 +223,15 @@ nav a:focus {
 
 .container {
     padding: 2rem 10rem;
+    margin-top: 4rem;
 }
 
-.works h1 {
+.works h1, .container h1 {
     font-size: var(--x-large);
     color: var(--color-third);
 }
 
-.works h2 {
+.works h2, .container h2 {
     font-size: var(--large);
     color:var(--color-secondary);
 }
@@ -131,6 +242,21 @@ nav a:focus {
     margin-bottom: 3rem;
 }
 
+.client .headline {
+    color: var(--color-third);
+    transition: .1s;
+    cursor: default;
+}
+
+.client:hover .headline {
+    letter-spacing: 15px;
+}
+
+.clients {
+    display: flex;
+    flex-direction: column;
+}
+
 .clients p {
     color: white;
 }
@@ -138,15 +264,115 @@ nav a:focus {
 .clients a {
     color: white;
     font-weight: 700;
+    transition: 0.1s;
+    border-bottom: 2px solid transparent;
+}
+
+.clients a:hover {
+    border-bottom: 2px solid var(--color-third);
+    transition: 0.1s;
+}
+
+.clients p, .clients a {
+    transform: rotate(-4deg) skew(-4deg);
 }
 
 @media (max-width: 600px) {
+    :root {
+        --xx-large: 4rem;
+    }
+
     html {
         font-size: 10px;
     }
 
+    .header-desktop {
+        display: none;
+    }
+
+    .toggle-menu {
+        all: unset;
+    }
+
+    .toggle, .untoggle {
+        color: var(--color-secondary);
+        font-size: var(--large);
+        position: fixed;
+        right: 3rem;
+        top: 3rem;
+        z-index: 10;
+    }
+
+    .toggle-menu:not(:checked) ~ .untoggle, .toggle-menu:checked ~ .toggle {
+        display: none;
+    }
+
+    .toggle-menu:not(:checked) ~ .toggle, .toggle-menu:checked ~ .untoggle {
+        display: inline;
+    }
+
+    .toggle-menu:checked ~ nav {
+        visibility: visible;
+    }
+
+    .header-mobile {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 4;
+    }
+
+    .header-mobile nav {
+        height: 100vh;
+        background: var(--color-main);
+        visibility: hidden;
+    }
+
+    .header-mobile ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    .header-mobile a {
+        font-size: var(--x-large);
+        text-shadow: 2px 2px 0 var(--color-third);
+        line-height: 2;
+        transform: rotate(-4deg) skew(-4deg);
+    }
+
+    .header-mobile a:hover {
+        text-shadow: 2px 2px 0 var(--color-third);
+    }
+
+    .legal-links {
+        top: unset;
+        bottom: 2rem;
+        right: 0;
+        left: 0;
+        z-index: 5;
+    }
+
+    .hero {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .headline {
+        text-shadow: 2px 2px 0 var(--color-secondary);
+    }
+
     .hero h2 {
-        font-size: var(--normal);
+        font-size: var(--medium);
+        text-align: center;
+        padding: 0 5px;
     }
 
     .hero .icons {
