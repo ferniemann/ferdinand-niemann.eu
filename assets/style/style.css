@@ -53,6 +53,10 @@ h1, h2 {
     z-index: 2;
 }
 
+.header-mobile {
+    display: none;
+}
+
 main {
     margin-bottom: 5rem;
 }
