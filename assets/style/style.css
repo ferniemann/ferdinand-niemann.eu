@@ -1,3 +1,7 @@
+/*
+** GENERAL STYLING
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Mulish:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
 
 :root {
@@ -43,6 +47,7 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+/* SHOW HEADER WITH NAV ON DESKTOP */
 .header-desktop {
     padding: 2rem;
     position: fixed;
@@ -53,6 +58,7 @@ h1, h2 {
     z-index: 2;
 }
 
+/* HIDE MOBILE NAV ON DESKTOP */
 .header-mobile {
     display: none;
 }
@@ -61,7 +67,7 @@ main {
     margin-bottom: 5rem;
 }
 
-.heading {
+.top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -71,9 +77,10 @@ main {
     left: 10rem;
     right: 10rem;
     background: var(--color-main);
+    z-index: 10;
 }
 
-.heading .icons {
+.top-bar .icons {
     margin: 0;
 }
 
@@ -106,6 +113,7 @@ nav a:focus {
 }
 
 .legal-links {
+    background: var(--color-main);
     font-size: var(--small);
     position: fixed;
     top: 0.5rem;
@@ -128,7 +136,7 @@ nav a:focus {
     all: unset;
 }
 
-.legal-notice label {
+.language-switch {
     padding: .5rem 1rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -206,6 +214,7 @@ h1 a:hover {
 .hero h2 {
     font-size: var(--medium);
     color: var(--color-secondary);
+    text-align: center;
 }
 
 .icons {
@@ -230,12 +239,12 @@ h1 a:hover {
     margin-top: 4rem;
 }
 
-.works h1, .container h1 {
+.container h1 {
     font-size: var(--x-large);
     color: var(--color-third);
 }
 
-.works h2, .container h2 {
+.container h2 {
     font-size: var(--large);
     color:var(--color-secondary);
 }
@@ -281,7 +290,36 @@ h1 a:hover {
     transform: rotate(-4deg) skew(-4deg);
 }
 
-@media (max-width: 600px) {
+@media (max-height: 780px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1100px), (max-height: 780px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 900px), (max-height: 620px) {
+    :root {
+        --xx-large: 5rem;
+    }
+    html {
+        font-size: 16px;
+    }
+
+    .hero h2 {
+        text-align: center;;
+    }
+
+    .header-desktop a {
+        font-size: var(--normal);
+    }
+}
+
+@media (max-width: 600px), (max-height: 560px) {
     :root {
         --xx-large: 4rem;
     }
@@ -303,8 +341,9 @@ h1 a:hover {
         font-size: var(--large);
         position: fixed;
         right: 3rem;
-        top: 3rem;
+        top: 2.5rem;
         z-index: 10;
+        padding: 0;
     }
 
     .toggle-menu:not(:checked) ~ .untoggle, .toggle-menu:checked ~ .toggle {
@@ -316,23 +355,58 @@ h1 a:hover {
     }
 
     .toggle-menu:checked ~ nav {
-        visibility: visible;
+        display: block;
     }
 
     .header-mobile {
         display: block;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
+    }
+
+    .top-bar {
         left: 0;
-        z-index: 4;
+        padding-left: 3rem;
+        right: 0;
+        padding-right: 3rem;
+    }
+
+    .top-bar h1, .top-bar .icons {
+        position: relative;
+        z-index: 10;
+    }
+
+    .top-bar .icons {
+        position: fixed;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 6;
+    }
+
+    .container {
+        padding: 0;
+        margin: 10rem 2rem;
+    }
+
+    .client .headline {
+        font-size: var(--big);
+        letter-spacing: 2px;
+    }
+
+    .client:hover .headline {
+        letter-spacing: 2px;
     }
 
     .header-mobile nav {
+        position: absolute;
         height: 100vh;
         background: var(--color-main);
-        visibility: hidden;
+        display: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
     }
 
     .header-mobile ul {
@@ -357,17 +431,19 @@ h1 a:hover {
 
     .legal-links {
         top: unset;
-        bottom: 2rem;
+        padding: 2rem;
+        bottom: 0;
         right: 0;
         left: 0;
-        z-index: 5;
+        z-index: 10;
     }
 
     .hero {
         margin: 0;
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .headline {
@@ -382,5 +458,47 @@ h1 a:hover {
 
     .hero .icons {
         font-size: var(--large);
+    }
+
+    .legal h3, .legal h4 {
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1.8;
+    }
+
+    .legal h4, .legal h5, .legal p {
+        line-height: 1.8;
+    }
+
+    .legal h4 {
+        font-size: var(--medium);
+    }
+
+    .legal h5 {
+        font-size: var(--normal);
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    .legal h3:not(:first-of-type) {
+        margin-top: 5rem;
+    }
+
+    .legal p {
+        margin-bottom: 5rem;
+    }
+
+    .legal a {
+        color: white;
+        border-bottom: 2px solid var(--color-third);
+    }
+
+    .legal ul {
+        font-size: var(--medium);
+        padding-left: 3rem;
+    }
+
+    .legal li {
+        margin-bottom: 2rem;
     }
 }

@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
-    <header>
+    <header class="header-desktop">
         <nav>
             <ul>
-                <li><a href="#" class="active">Works</a></li>
+                <li><a href="../works">Works</a></li>
                 <li><a href="../skills">Skills</a></li>
                 <li><a href="../projects">Projects</a></li>
                 <li><a href="../about">About Me</a></li>
@@ -21,13 +21,7 @@
         </nav>
     </header>
     <main class="container works">
-        <section class="legal-links">
-            <ul>
-                <li><a href="../legal">Legal Notice</a></li>
-                <li><a href="../privacy">Privacy</a></li>
-            </ul>
-        </section>
-        <article class="heading">
+        <header class="top-bar">
             <h1>
                 <a href="../"><i class="fas fa-chevron-left"></i></a>
             </h1>
@@ -42,7 +36,25 @@
                     <i class="fab fa-twitter"></i>
                 </a>
             </section>
-        </article>
+            <section class="header-mobile">
+                <input type="checkbox" name="" id="toggle-menu" class="toggle-menu">
+                <label class="toggle" for="toggle-menu">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <label class="untoggle" for="toggle-menu">
+                    <i class="fas fa-times"></i>
+                </label>
+                <nav>
+                    <ul>
+                        <li><a href="../works">Works</a></li>
+                        <li><a href="../skills">Skills</a></li>
+                        <li><a href="../projects">Projects</a></li>
+                        <li><a href="../about">About Me</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
         <article class="content clients">
             <section class="client">
                 <h2 class="headline">
@@ -78,5 +90,11 @@
             </section>
         </article>
     </main>
+        <footer class="legal-links">
+        <ul>
+            <li><a href="../legal">Legal Notice</a></li>
+            <li><a href="../privacy">Privacy</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
