@@ -4,7 +4,20 @@
 
 @font-face {
     font-family: Mulish;
-    src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
+    src: url("../fonts/Mulish-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Mulish;
+    src: url("../fonts/Mulish-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Mulish;
+    src: url("../fonts/Mulish-Black.ttf");
+    font-weight: 900;
 }
 
 :root {
