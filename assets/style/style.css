@@ -2,7 +2,10 @@
 ** GENERAL STYLING
 */
 
-@import url("https://fonts.googleapis.com/css?family=Mulish:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+@font-face {
+    font-family: Mulish;
+    src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
+}
 
 :root {
     --color-main: #450920;
@@ -119,7 +122,7 @@ nav a:focus {
     top: 0.5rem;
     right: 10rem;
     text-transform: uppercase;
-    z-index: 2;
+    z-index: 10;
 }
 
 .legal-links a {
@@ -290,6 +293,72 @@ h1 a:hover {
     transform: rotate(-4deg) skew(-4deg);
 }
 
+.contact-info {
+    margin-top: 3rem;
+    display: flex;
+    gap: 4rem;
+    font-size: var(--big);
+}
+
+
+.contact-icon, .contact-link {
+    color: white;
+}
+
+.contact-link {
+    border-bottom: 4px solid transparent;
+}
+
+.contact-link:hover {
+    border-bottom: 4px solid var(--color-third);
+}
+
+.contact-icon:hover ~ .contact-link {
+    border-bottom: 4px solid var(--color-third);
+}
+
+.legal h3, .legal h4 {
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.8;
+}
+
+.legal h4, .legal h5, .legal p {
+    line-height: 1.8;
+}
+
+.legal h4 {
+    font-size: var(--medium);
+}
+
+.legal h5 {
+    font-size: var(--normal);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.legal h3:not(:first-of-type) {
+    margin-top: 5rem;
+}
+
+.legal p {
+    margin-bottom: 5rem;
+}
+
+.legal a {
+    color: white;
+    border-bottom: 2px solid var(--color-third);
+}
+
+.legal ul {
+    font-size: var(--medium);
+    padding-left: 3rem;
+}
+
+.legal li {
+    margin-bottom: 2rem;
+}
+
 @media (max-height: 780px) {
     html {
         font-size: 16px;
@@ -458,47 +527,5 @@ h1 a:hover {
 
     .hero .icons {
         font-size: var(--large);
-    }
-
-    .legal h3, .legal h4 {
-        font-weight: 900;
-        text-transform: uppercase;
-        line-height: 1.8;
-    }
-
-    .legal h4, .legal h5, .legal p {
-        line-height: 1.8;
-    }
-
-    .legal h4 {
-        font-size: var(--medium);
-    }
-
-    .legal h5 {
-        font-size: var(--normal);
-        font-weight: 900;
-        text-transform: uppercase;
-    }
-
-    .legal h3:not(:first-of-type) {
-        margin-top: 5rem;
-    }
-
-    .legal p {
-        margin-bottom: 5rem;
-    }
-
-    .legal a {
-        color: white;
-        border-bottom: 2px solid var(--color-third);
-    }
-
-    .legal ul {
-        font-size: var(--medium);
-        padding-left: 3rem;
-    }
-
-    .legal li {
-        margin-bottom: 2rem;
     }
 }
