@@ -372,6 +372,40 @@ h1 a:hover {
     margin-bottom: 2rem;
 }
 
+.short-info {
+    display: flex;
+    gap: 2rem;
+}
+
+.short-info h4 {
+    color: var(--color-third);
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.short-info h4:not(:first-of-type) {
+    margin-top: 2rem;
+}
+
+.short-info h3 {
+    color: white;
+    font-weight: 400;
+}
+
+.short-info h3 a {
+    color: white;
+    border-bottom: 4px solid var(--color-third);
+}
+
+.short-info a:hover, .legal a:hover,  {
+    background: var(--color-third);
+}
+
+.short-info img {
+    width: 35%;
+    box-shadow: 10px 10px 0 var(--color-third);
+}
+
 @media (max-height: 780px) {
     html {
         font-size: 16px;
@@ -540,5 +574,10 @@ h1 a:hover {
 
     .hero .icons {
         font-size: var(--large);
+    }
+
+    .short-info {
+        flex-direction: column-reverse;
+        margin-top: 3rem;
     }
 }
